@@ -23,7 +23,7 @@ export const getLeasePayments = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  try {
+  try { 
     const { id } = req.params;
     const payments = await prisma.payment.findMany({
       where: { leaseId: Number(id) },
