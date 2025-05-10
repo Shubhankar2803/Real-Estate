@@ -5,7 +5,7 @@ import { useGetAuthUserQuery } from '@/state/api'
 import { usePathname, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
-const layout = ({children}:{children: React.ReactNode}) => {
+const Layout = ({children}:{children: React.ReactNode}) => {
   const {data:authUser,isLoading:authLoading}=useGetAuthUserQuery()
     const router = useRouter();
     const pathname = usePathname();
@@ -41,4 +41,4 @@ const layout = ({children}:{children: React.ReactNode}) => {
   )
 }
 
-export default layout
+export default Layout
