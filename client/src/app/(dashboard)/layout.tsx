@@ -41,9 +41,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <div className="min-h-screen w-full bg-primary-100">
         <Navbar />
         <div style={{ marginTop: `${NAVBAR_HEIGHT}px` }}>
-          <main className="flex">
-            <Sidebar userType={authUser.userRole.toLowerCase()} />
-            <div className="flex-grow transition-all duration-300">
+          <main className="grid col-auto">
+            <Sidebar userType={authUser.userRole.toLowerCase()}  />
+            <div className="flex-grow transition-all duration-300 ml-40">
               {children}
             </div>
           </main>

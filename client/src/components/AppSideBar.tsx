@@ -49,7 +49,7 @@ const AppSidebar = ({ userType }: AppSidebarProps) => {
       style={{
         top: `${NAVBAR_HEIGHT}px`,
         height: `calc(100vh - ${NAVBAR_HEIGHT}px)`,
-        marginRight: "30px", // Gap between sidebar and content
+        marginRight: "50px", // Gap between sidebar and content
         width: isCollapsed ? "80px" : "250px", // Toggle width when collapsed
         transition: "width 0.3s ease", // Smooth transition for collapse
       }}

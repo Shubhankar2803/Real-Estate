@@ -53,7 +53,10 @@ const NewProperty = () => {
         });
       } else if (Array.isArray(value)) {
         formData.append(key, JSON.stringify(value));
-      } else {
+      }
+
+
+      else {
         formData.append(key, String(value));
       }
     });
@@ -170,7 +173,7 @@ const NewProperty = () => {
                 <CustomFormField
                   name="amenities"
                   label="Amenities"
-                  type="select"
+                  type="multi-input"
                   options={Object.keys(AmenityEnum).map((amenity) => ({
                     value: amenity,
                     label: amenity,
@@ -179,7 +182,7 @@ const NewProperty = () => {
                 <CustomFormField
                   name="highlights"
                   label="Highlights"
-                  type="select"
+                  type="multi-input"
                   options={Object.keys(HighlightEnum).map((highlight) => ({
                     value: highlight,
                     label: highlight,
