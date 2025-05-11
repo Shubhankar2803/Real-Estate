@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const NewProperty = () => {
   const [createProperty] = useCreatePropertyMutation();
@@ -40,7 +41,10 @@ const NewProperty = () => {
   });
 
   const onSubmit = async (data: PropertyFormData) => {
-    if (!authUser?.cognitoInfo?.userId) {
+
+    
+   try {
+     if (!authUser?.cognitoInfo?.userId) {
       throw new Error("No manager ID found");
     }
 
@@ -64,6 +68,10 @@ const NewProperty = () => {
     formData.append("managerCognitoId", authUser.cognitoInfo.userId);
 
     await createProperty(formData);
+   } catch (error) {
+    console.log("In new propeerty",error)
+    toast.error("error in creating property")
+   }
   };
 
   return (
