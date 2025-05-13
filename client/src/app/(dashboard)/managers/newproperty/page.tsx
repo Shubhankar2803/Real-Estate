@@ -66,11 +66,16 @@ const NewProperty = () => {
     });
 
     formData.append("managerCognitoId", authUser.cognitoInfo.userId);
+    console.log(formData)
 
-    await createProperty(formData);
+   await createProperty(formData).catch(error => {
+  console.error("Error in creating property:", error);
+  toast.error("Error in creating property");
+});
+
    } catch (error) {
     console.log("In new propeerty",error)
-    toast.error("error in creating property")
+    toast.error("error in creating properrrty")
    }
   };
 

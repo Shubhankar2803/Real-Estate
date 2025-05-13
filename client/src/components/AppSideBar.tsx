@@ -72,7 +72,7 @@ const AppSidebar = ({ userType }: AppSidebarProps) => {
                 </button>
               ) : (
                 <>
-                  <h1 className="text-xl font-bold text-gray-800">Rentiful</h1>
+                  <h1 className="text-xl font-bold text-gray-800">ESTATE EDGE</h1>
                   <button
                     className="hover:bg-gray-100 p-2 rounded-md"
                     onClick={toggleSidebar}

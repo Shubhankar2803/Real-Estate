@@ -262,18 +262,19 @@ export const api = createApi({
     }),
 
     // lease related enpoints
-    getLeases: build.query<Lease[], number>({
-      query: () => "leases",
-      providesTags: ["Leases"],
-      async onQueryStarted(_, { queryFulfilled }) {
-        await withToast(queryFulfilled, {
-          error: "Failed to fetch leases.",
-        });
-      },
-    }),
+getLeases: build.query<Lease[], number>({
+  query: (propertyId) => `leases/property/${propertyId}`, // Updated the endpoint to use propertyId
+  providesTags: ["Leases"],
+  async onQueryStarted(_, { queryFulfilled }) {
+    await withToast(queryFulfilled, {
+      error: "Failed to fetch leases.",
+    });
+  },
+}),
+
 
     getPropertyLeases: build.query<Lease[], number>({
-      query: (propertyId) => `properties/${propertyId}/leases`,
+      query: (propertyId) => `properties/${propertyId}`,
       providesTags: ["Leases"],
       async onQueryStarted(_, { queryFulfilled }) {
         await withToast(queryFulfilled, {

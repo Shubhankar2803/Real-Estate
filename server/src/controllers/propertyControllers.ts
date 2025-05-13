@@ -285,7 +285,16 @@ export const createProperty = async (
     });
 
     res.status(201).json(newProperty);
-  } catch (err: any) {
+
+
+    if (!address || !city || !state || !country || !postalCode) {
+      console.log("missing fields")
+   res.status(400).json({
+    message: "Missing required location fields",
+  });
+}
+
+  } catch (err:any) {
   console.error("Error in createProperty:", err); // <-- add this
   res.status(500).json({ message: `Error creating property: ${err.message}` });
 }

@@ -5,6 +5,8 @@ import {
   updateManager,
   getManagerProperties,
 } from "../controllers/managerController";
+import { authMiddleware } from "../middleware/authMiddleware";
+import { getLeasesByPropertyId } from "../controllers/leaseControllers";
 
 const router = express.Router();
 
